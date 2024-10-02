@@ -1,0 +1,42 @@
+[
+  {
+    "login": "Tessalol",
+    "id": 100000001,
+    "node_id": "U_kgDOBfXhAQ",
+    "avatar_url": "https://avatars.githubusercontent.com/u/100000001?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/Tessalol",
+    "html_url": "https://github.com/Tessalol",
+    "followers_url": "https://api.github.com/users/Tessalol/followers",
+    "following_url": "https://api.github.com/users/Tessalol/following{/other_user}",
+    "gists_url": "https://api.github.com/users/Tessalol/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/Tessalol/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/Tessalol/subscriptions",
+    "organizations_url": "https://api.github.com/users/Tessalol/orgs",
+    "repos_url": "https://api.github.com/users/Tessalol/repos",
+    "events_url": "https://api.github.com/users/Tessalol/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/Tessalol/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  {
+    "login": "Araujowill",
+    "id": 100000002,
+    "node_id": "U_kgDOBfXhAg",
+    "avatar_url": "https://avatars.githubusercontent.com/u/100000002?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/Araujowill",
+    "html_url": "https://github.com/Araujowill",
+    "followers_url": "https://api.github.com/users/Araujowill/followers",
+    "following_url": "https://api.github.com/users/Araujowill/following{/other_user}",
+    "gists_url": "https://api.github.com/users/Araujowill/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/Araujowill/starred{/owner}{/repo}",
+    "subscriptions_url": ",https://api.github.com/users/Araujowill/subscriptions",
+    "organizations_url": "https://api.github.com/users/Araujowill/orgs",
+    "repos_url,": "https://api.github.com/users/Araujowill/repos",
+    "events_url": "https://api.github.com/users/Araujowill/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/Araujowill/received_events",
+    "type": "User",
+    "site_admin": false
+  }
+]

@@ -1,0 +1,4 @@
+<resources>
+    <string name="main_screen_title">Github Users</string>
+    <string name="main_back_btn_description">backBtn</string>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="user_detail_screen_title">User Details</string>
+    <string name="user_detail_back_btn_description">backBtn</string>
+    <string name="user_detail_follower">Follower</string>
+    <string name="user_detail_following">Following</string>
+    <string name="user_detail_blog">Blog</string>
+</resources>
