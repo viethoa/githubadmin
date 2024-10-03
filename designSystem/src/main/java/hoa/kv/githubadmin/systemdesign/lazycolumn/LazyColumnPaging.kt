@@ -12,7 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 
 /**
- * A custom version of LazyColumn which support [loadMore] function.
+ * [LazyColumnPaging] A custom version of [LazyColumn] which support [loadMore] function.
  *
  * @param buffer buffer item/s to trigger load more when user scroll to bottom, default value is 1.
  * E.g: list is 10 items, buffer is 1, [loadMore] will be triggered when user scroll to item 8.

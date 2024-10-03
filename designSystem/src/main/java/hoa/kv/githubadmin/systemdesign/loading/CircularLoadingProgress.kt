@@ -20,14 +20,21 @@ import androidx.compose.ui.unit.dp
 import hoa.kv.githubadmin.systemdesign.R
 
 /**
- * Global FullScreen Loading composable
+ * [CircularLoadingProgress] display a fullscreen loading with a circle loading progress in the center
  *
- * In the application in which place need fullscreen loading, should use it for consistency
+ * @param size Config the size of circle loading progress
+ * @param color Config the circle loading progress color
+ * @param trackColor Config circle loading progress trackColor
+ * @param progressDescription For instrumentation test when you want to find the progress with description
  */
 @Composable
-fun CircularLoadingProgress() {
+fun CircularLoadingProgress(
+    size: Int = 60,
+    color: Color = MaterialTheme.colorScheme.primary,
+    trackColor: Color = MaterialTheme.colorScheme.surfaceVariant,
+    progressDescription: String = stringResource(R.string.loading_content_description)
+) {
     val interactionSource = remember { MutableInteractionSource() }
-    val progressDescription = stringResource(R.string.loading_content_description)
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -42,9 +49,9 @@ fun CircularLoadingProgress() {
             }
     ) {
         CircularProgressIndicator(
-            modifier = Modifier.width(60.dp),
-            color = MaterialTheme.colorScheme.primary,
-            trackColor = MaterialTheme.colorScheme.surfaceVariant,
+            color = color,
+            trackColor = trackColor,
+            modifier = Modifier.width(size.dp),
         )
     }
 }

@@ -36,14 +36,13 @@ import hoa.kv.githubadmin.systemdesign.theme.LightGray
 import hoa.kv.githubadmin.systemdesign.theme.White
 
 /**
- * User Card View for displaying user information such as
- * - Name [UserCardViewModel.name]
- * - Avatar [UserCardViewModel.avatarUrl]
- * - Github landing page link [UserCardViewModel.landingPageUrl]
- * - User Location [UserCardViewModel.location]
+ * [UserCardView] Display user information in the [Card] view with information following [UserCardViewModel]
  *
- * @param titleFontSize for custom font-size of the title which is username, default value is 18sp
- * @param backgroundColor for custom card background color, default is
+ * @param modifier Modifier to be applied to the card
+ * @param data Data which to show in the card
+ * @param titleFontSize Font size to be applied for title which is [UserCardViewModel.name]
+ * @param backgroundColor Background to be applied for card content
+ * @param onCardViewClicked Callback event when user click into the card
  */
 @Composable
 fun UserCardView(
