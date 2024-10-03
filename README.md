@@ -5,6 +5,6 @@ Tech Stacks
 - Unit Test: Junit, Mockk
 - Instrumentation Test: Junit, Espresso
 
-Modularization
+Module graph
 -----
-![compose](/images/modularization.png)
+![compose](/images/module-graph.png)

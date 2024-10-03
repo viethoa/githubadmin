@@ -44,11 +44,11 @@ dependencies {
     implementation(libs.koin.core.coroutines)
     implementation(libs.koin.androidx.compose)
     implementation(project(":data:repository"))
-    implementation(project(":systemDesign"))
     implementation(project(":userDetails"))
 }
 
 dependencies {
+    implementation(project(":designSystem"))
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
     testImplementation(libs.androidx.core.testing)

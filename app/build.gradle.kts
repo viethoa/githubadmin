@@ -56,7 +56,7 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.core.coroutines)
     implementation(libs.koin.androidx.compose)
-    implementation(project(":systemDesign"))
+    implementation(project(":designSystem"))
     implementation(project(":userDetails"))
     implementation(project(":landing"))
     implementation(project(":data:repository"))

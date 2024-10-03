@@ -13,8 +13,8 @@
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/repository" />
             <option value="$PROJECT_DIR$/data/repositoryimpl" />
+            <option value="$PROJECT_DIR$/designSystem" />
             <option value="$PROJECT_DIR$/landing" />
-            <option value="$PROJECT_DIR$/systemDesign" />
             <option value="$PROJECT_DIR$/userDetails" />
           </set>
         </option>
