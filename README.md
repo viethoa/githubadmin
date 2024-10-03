@@ -8,3 +8,7 @@ Tech Stacks
 Module graph
 -----
 ![compose](/images/module-graph.png)
+
+Quick look
+-----
+![compose](/images/demo.gif)
