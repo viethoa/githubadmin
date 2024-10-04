@@ -1,4 +1,4 @@
-Tech Stacks
+Tech stack
 -----
 - Architecture: MVVM
 - Libraries: JetpackCompose, Ktor, Room, Koin
@@ -9,6 +9,6 @@ Module graph
 -----
 ![compose](/images/module-graph.png)
 
-Quick look
+Demo
 -----
 ![compose](/images/demo.gif)
