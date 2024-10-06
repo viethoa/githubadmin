@@ -18,6 +18,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import hoa.kv.githubadmin.systemdesign.R
+import hoa.kv.githubadmin.systemdesign.theme.Black
 
 /**
  * [CircularLoadingProgress] display a fullscreen loading with a circle loading progress in the center
@@ -39,7 +40,7 @@ fun CircularLoadingProgress(
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize(1.0F)
-            .background(Color.Black.copy(alpha = 0.4f))
+            .background(Black.copy(alpha = 0.4f))
             .semantics { contentDescription = progressDescription }
             .clickable(
                 interactionSource = interactionSource,

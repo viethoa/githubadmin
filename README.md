@@ -1,3 +1,11 @@
+[iOS demo is done by Kotlin Multiple Platform](https://github.com/viethoa/kmp-githubadmin) (Sorry, it come late after deadline)
+<p style="text-align: center;">
+  <img src="images/android-2.jpg" width="160"/>
+  <img src="images/android-1.jpg" width="160"/>
+  <img src="images/ios-1.jpg" width="165"/>
+  <img src="images/ios-2.jpg" width="165"/>
+</p>
+
 Tech stack
 -----
 - Architecture: MVVM
@@ -8,7 +16,3 @@ Tech stack
 Module graph
 -----
 ![compose](/images/module-graph.png)
-
-Demo
------
-![compose](/images/demo.gif)

@@ -99,6 +99,8 @@ private fun UserAvatar(avatarUrl: String, contentDescription: String) {
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
             .data(avatarUrl)
+            .diskCacheKey(avatarUrl)
+            .memoryCacheKey(avatarUrl)
             .crossfade(true)
             .build(),
         placeholder = painterResource(R.drawable.ic_user_placeholder),

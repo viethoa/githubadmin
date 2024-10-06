@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import hoa.kv.githubadmin.repository.model.User
 import hoa.kv.githubadmin.systemdesign.loading.CircularLoadingProgress
+import hoa.kv.githubadmin.systemdesign.theme.Black
 import hoa.kv.githubadmin.systemdesign.theme.Transparent
 import hoa.kv.githubadmin.systemdesign.theme.White
 import hoa.kv.githubadmin.systemdesign.usercard.UserCardView
@@ -81,8 +82,8 @@ private fun UserDetailsContent(
                 .padding(16.dp, 16.dp, 16.dp, 24.dp)
                 .shadow(
                     elevation = 12.dp,
-                    ambientColor = Color.Black,
-                    spotColor = Color.Black,
+                    ambientColor = Black,
+                    spotColor = Black,
                     shape = RoundedCornerShape(8.dp)
                 ),
             titleFontSize = 20,
