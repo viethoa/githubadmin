@@ -1,5 +1,7 @@
 package hoa.kv.githubadmin.landing
 
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.hasText
@@ -27,7 +29,11 @@ class MainScreenTest {
     fun verifyCanSeeListUserInMainScreen() {
         composeTestRule.setContent {
             GithubAdminTheme {
-                MainView { /* no-operation */ }
+                MainScreen(
+                    snackbarHostState = remember { SnackbarHostState() },
+                    onBackPressed = { /* no-operation */ },
+                    onOpenUserDetails = { /* no-operation */ }
+                )
             }
         }
         composeTestRule
@@ -43,7 +49,11 @@ class MainScreenTest {
     fun verifyLoadMoreUsersWhenScrollToBottom() {
         composeTestRule.setContent {
             GithubAdminTheme {
-                MainView { /* no-operation */ }
+                MainScreen(
+                    snackbarHostState = remember { SnackbarHostState() },
+                    onBackPressed = { /* no-operation */ },
+                    onOpenUserDetails = { /* no-operation */ }
+                )
             }
         }
         composeTestRule

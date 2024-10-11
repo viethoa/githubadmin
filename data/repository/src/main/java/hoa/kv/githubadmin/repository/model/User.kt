@@ -1,11 +1,8 @@
 package hoa.kv.githubadmin.repository.model
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@Parcelize
 @Serializable
 data class User(
     @SerialName("id")
@@ -22,8 +19,7 @@ data class User(
     val followers: Int = 0,
     @SerialName("following")
     val following: Int = 0
-) : Parcelable {
-
+) {
     constructor(userEntity: UserEntity) : this(
         id = userEntity.id,
         loginName = userEntity.loginName,

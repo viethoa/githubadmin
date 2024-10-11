@@ -20,6 +20,9 @@
       <SelectionState runConfigName="UserCardViewTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="verifyCanSeeListUserInMainScreen()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

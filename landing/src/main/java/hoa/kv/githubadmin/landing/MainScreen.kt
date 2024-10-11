@@ -1,42 +1,81 @@
 package hoa.kv.githubadmin.landing
 
-import android.widget.Toast
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import hoa.kv.githubadmin.landing.tag.MainScreenTestTag
 import hoa.kv.githubadmin.landing.utils.toUserCardViewModel
 import hoa.kv.githubadmin.repository.model.User
 import hoa.kv.githubadmin.systemdesign.lazycolumn.LazyColumnPaging
 import hoa.kv.githubadmin.systemdesign.loading.CircularLoadingProgress
 import hoa.kv.githubadmin.systemdesign.theme.Black
+import hoa.kv.githubadmin.systemdesign.theme.White
 import hoa.kv.githubadmin.systemdesign.usercard.UserCardView
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun MainView(
-    modifier: Modifier = Modifier,
+fun MainScreen(
     viewModel: MainViewModel = koinViewModel<MainViewModel>(),
+    snackbarHostState: SnackbarHostState,
+    onBackPressed: () -> Unit,
+    onOpenUserDetails: (User) -> Unit
+) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle(
+        lifecycleOwner = LocalLifecycleOwner.current
+    )
+
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
+        topBar = {
+            MainTopBar { onBackPressed() }
+        }
+    ) { innerPadding ->
+        MainViewContainer(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .background(color = White),
+            snackbarHostState = snackbarHostState,
+            uiState = uiState,
+            onLoadMore = { viewModel.getMoreUsers() }
+        ) { user ->
+            onOpenUserDetails(user)
+        }
+    }
+}
+
+@Composable
+private fun MainViewContainer(
+    modifier: Modifier = Modifier,
+    snackbarHostState: SnackbarHostState,
+    uiState: MainUiState,
+    onLoadMore: () -> Unit,
     onItemUserClicked: (User) -> Unit
 ) {
     val users = remember { mutableStateListOf<User>() }
-    val uiState by viewModel.uiState.observeAsState()
 
     MainViewContent(
         modifier = modifier,
         users = users,
-        loadMore = { viewModel.getMoreUsers() },
+        loadMore = { onLoadMore() },
         onItemUserClicked = { user -> onItemUserClicked(user) }
     )
 
@@ -44,14 +83,13 @@ fun MainView(
         is MainUiState.Loading -> CircularLoadingProgress()
         is MainUiState.GetUsersSuccess -> {
             users.clear()
-            users.addAll((uiState as MainUiState.GetUsersSuccess).users)
+            users.addAll(uiState.users)
         }
         is MainUiState.GetUsersError -> {
-            val errorMessageRes = (uiState as MainUiState.GetUsersError).errorMessage
-            Toast.makeText(LocalContext.current, stringResource(errorMessageRes), Toast.LENGTH_SHORT).show()
-        }
-        else -> {
-            // no-operation
+            val errorMessage = stringResource(uiState.errorMessage)
+            LaunchedEffect(uiState) {
+                snackbarHostState.showSnackbar(errorMessage)
+            }
         }
     }
 }

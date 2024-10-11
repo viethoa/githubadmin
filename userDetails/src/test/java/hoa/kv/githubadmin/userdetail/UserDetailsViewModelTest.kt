@@ -1,5 +1,6 @@
 package hoa.kv.githubadmin.userdetail
 
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.testing.TestLifecycleOwner
 import hoa.kv.githubadmin.repository.ApiResponse
 import hoa.kv.githubadmin.repository.ApiResponse.NoNetworkException
@@ -32,7 +33,7 @@ class UserDetailsViewModelTest : BaseViewModelTest() {
         coEvery { userRepository.getUser("Araujowill") } returns ApiResponse.Success(araujowill)
 
         val actualUiState = arrayListOf<UserDetailUiState>()
-        viewModel.uiState.observe(testLifecycleOwner) { actualUiState.add(it) }
+        viewModel.uiState.asLiveData().observe(testLifecycleOwner) { actualUiState.add(it) }
         viewModel.getUser("Araujowill")
 
         assertEquals(expectedUiState, actualUiState)
@@ -46,7 +47,7 @@ class UserDetailsViewModelTest : BaseViewModelTest() {
         coEvery { userRepository.getUser(any()) } returns ApiResponse.Error(NoNetworkException)
 
         val actualUiState = arrayListOf<UserDetailUiState>()
-        viewModel.uiState.observe(testLifecycleOwner) { actualUiState.add(it) }
+        viewModel.uiState.asLiveData().observe(testLifecycleOwner) { actualUiState.add(it) }
         viewModel.getUser("Araujowill")
 
         assertEquals(expectedUiState, actualUiState)
@@ -60,7 +61,7 @@ class UserDetailsViewModelTest : BaseViewModelTest() {
         coEvery { userRepository.getUser(any()) } returns ApiResponse.Error(HttpRequestException("Test"))
 
         val actualUiState = arrayListOf<UserDetailUiState>()
-        viewModel.uiState.observe(testLifecycleOwner) { actualUiState.add(it) }
+        viewModel.uiState.asLiveData().observe(testLifecycleOwner) { actualUiState.add(it) }
         viewModel.getUser("Araujowill")
 
         assertEquals(expectedUiState, actualUiState)

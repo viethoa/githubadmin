@@ -1,14 +1,14 @@
 package hoa.kv.githubadmin.userdetail
 
 import androidx.annotation.StringRes
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import hoa.kv.githubadmin.repository.ApiResponse
 import hoa.kv.githubadmin.repository.ApiResponse.NoNetworkException
 import hoa.kv.githubadmin.repository.model.User
 import hoa.kv.githubadmin.repository.user.UserRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import hoa.kv.githubadmin.systemdesign.R as sdR
 
@@ -16,8 +16,8 @@ class UserDetailViewModel(
     private val userRepository: UserRepository
 ) : ViewModel() {
 
-    private val _uiState = MutableLiveData<UserDetailUiState>()
-    val uiState: LiveData<UserDetailUiState> = _uiState
+    private val _uiState = MutableStateFlow<UserDetailUiState>(UserDetailUiState.Loading)
+    val uiState: StateFlow<UserDetailUiState> = _uiState
 
     fun getUser(loginName: String) {
         viewModelScope.launch {

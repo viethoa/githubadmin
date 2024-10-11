@@ -2,8 +2,6 @@ package hoa.kv.githubadmin.landing
 
 import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import hoa.kv.githubadmin.repository.ApiResponse
@@ -11,6 +9,7 @@ import hoa.kv.githubadmin.repository.ApiResponse.NoNetworkException
 import hoa.kv.githubadmin.repository.model.User
 import hoa.kv.githubadmin.repository.user.UserRepository
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import hoa.kv.githubadmin.systemdesign.R as sdR
 
@@ -26,8 +25,8 @@ class MainViewModel(
     @VisibleForTesting
     val users = arrayListOf<User>()
 
-    private val _uiState = MutableLiveData<MainUiState>()
-    val uiState: LiveData<MainUiState> = _uiState
+    private val _uiState = MutableStateFlow<MainUiState>(MainUiState.Loading)
+    val uiState: StateFlow<MainUiState> = _uiState
 
     init {
         // Get use immediately when ViewModel is init
